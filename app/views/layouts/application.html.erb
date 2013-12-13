@@ -66,9 +66,14 @@
 
     <div class="container">
         <div class="row">
-          <div class="span9">
+          <div class="span10">
             <%= bootstrap_flash %>
             <%= yield %>
+          </div>
+          <div class="span2">
+            <% if user_signed_in? %>
+              <%= image_tag avatar_url(current_user) %>
+            <% end %>
           </div>
           <!--
           <div class="span3">
