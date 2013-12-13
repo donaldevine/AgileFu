@@ -28,7 +28,7 @@
 
 	<% @project.product_backlogs.each do |product_backlog| %>
 		<tr>
-			<td><%= product_backlog.title %></td>
+			<td><%= link_to product_backlog.title, edit_project_product_backlog_path(@project, product_backlog) %></td>
 			<td><%= product_backlog.description %></td>
 		</tr>
 	<% end %>

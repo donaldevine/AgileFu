@@ -1,4 +1,4 @@
-<%= form_for(@product_backlog) do |f| %>
+<%= form_for [@project, @product_backlog] do |f| %>
   <% if @product_backlog.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product_backlog.errors.count, "error") %> prohibited this product_backlog from being saved:</h2>

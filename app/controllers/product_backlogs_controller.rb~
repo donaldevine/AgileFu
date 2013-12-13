@@ -24,6 +24,7 @@ class ProductBacklogsController < ApplicationController
   # GET /product_backlogs/new
   # GET /product_backlogs/new.json
   def new
+  	# Retrieve project 
   	@project = Project.find(params[:project_id])
     @product_backlog = ProductBacklog.new
 
