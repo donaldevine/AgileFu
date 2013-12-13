@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213094839) do
+ActiveRecord::Schema.define(:version => 20131213095604) do
+
+  create_table "product_backlogs", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "iteration"
+    t.text     "reason"
+    t.integer  "priority"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "project_id"
+  end
 
   create_table "projects", :force => true do |t|
     t.string   "name"

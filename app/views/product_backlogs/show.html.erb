@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @product_backlog.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product_backlog.description %>
+</p>
+
+<p>
+  <b>Iteration:</b>
+  <%= @product_backlog.iteration %>
+</p>
+
+<p>
+  <b>Reason:</b>
+  <%= @product_backlog.reason %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @product_backlog.priority %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_backlog_path(@product_backlog) %> |
+<%= link_to 'Back', product_backlogs_path %>
