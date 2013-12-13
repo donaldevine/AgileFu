@@ -63,6 +63,7 @@ class ProductBacklogsController < ApplicationController
   # PUT /product_backlogs/1.json
   def update
     @product_backlog = ProductBacklog.find(params[:id])
+    @project = @product_backlog.project 
 
     respond_to do |format|
       if @product_backlog.update_attributes(params[:product_backlog])

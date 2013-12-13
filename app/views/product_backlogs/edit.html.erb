@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @product_backlog %> |
-<%= link_to 'Back', product_backlogs_path %>
+<%= link_to 'Show', project_product_backlog_path(@product_backlog.project, @product_backlog) %> |
+<%= link_to 'Back', project_path(@project) %>
