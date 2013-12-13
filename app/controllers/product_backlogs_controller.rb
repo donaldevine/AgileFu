@@ -24,6 +24,8 @@ class ProductBacklogsController < ApplicationController
   # GET /product_backlogs/new
   # GET /product_backlogs/new.json
   def new
+  	# Retrieve project 
+  	@project = Project.find(params[:project_id])
     @product_backlog = ProductBacklog.new
 
     respond_to do |format|
@@ -34,12 +36,16 @@ class ProductBacklogsController < ApplicationController
 
   # GET /product_backlogs/1/edit
   def edit
+  	# Retrieve project 
+  	@project = Project.find(params[:project_id])
     @product_backlog = ProductBacklog.find(params[:id])
   end
 
   # POST /product_backlogs
   # POST /product_backlogs.json
   def create
+  	# Retrieve project 
+  	@project = Project.find(params[:project_id])
     @product_backlog = ProductBacklog.new(params[:product_backlog])
 
     respond_to do |format|

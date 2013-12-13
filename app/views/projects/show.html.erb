@@ -20,6 +20,24 @@
   <%= @project.target_completion_date %>
 </p>
 
+<table class="table">
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+	</tr>
+
+	<% @project.product_backlogs.each do |product_backlog| %>
+		<tr>
+			<td><%= product_backlog.title %></td>
+			<td><%= product_backlog.description %></td>
+		</tr>
+	<% end %>
+</table>
+
+<p>
+ 	<%= link_to 'New Product Backlog', new_project_product_backlog_path(@project) %>
+</p>
+
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
