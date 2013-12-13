@@ -4,4 +4,6 @@ class Project < ActiveRecord::Base
   has_many :product_backlogs
 
   validates_presence_of :name
+
+  belongs_to :user
 end
