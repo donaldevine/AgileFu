@@ -1,4 +1,9 @@
 class ProjectsController < ApplicationController
+  
+  # Devise uses this to control access to only allow signed in users access to see projects
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :owns_project, only: [:edit, :update, :destroy]
+
   # GET /projects
   # GET /projects.json
   def index
@@ -79,5 +84,11 @@ class ProjectsController < ApplicationController
       format.html { redirect_to projects_url }
       format.json { head :no_content }
     end
+  end
+
+  def owns_project
+    if !user_signed_in? || current_user != Project.find(params[:id]).user
+      redirect_to projects_path, error: "You do not have permission to peform that action."  
+    end  
   end
 end
