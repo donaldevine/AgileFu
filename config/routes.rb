@@ -1,6 +1,5 @@
 Agilefu::Application.routes.draw do
-  resources :product_backlogs
-
+  resources :product_backlogs, :only => [:index]
 
   resources :projects do
   	resources :product_backlogs
