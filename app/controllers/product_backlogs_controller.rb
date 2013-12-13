@@ -13,6 +13,7 @@ class ProductBacklogsController < ApplicationController
   # GET /product_backlogs/1
   # GET /product_backlogs/1.json
   def show
+  	@project = Project.find(params[:project_id])
     @product_backlog = ProductBacklog.find(params[:id])
 
     respond_to do |format|
@@ -49,7 +50,7 @@ class ProductBacklogsController < ApplicationController
 
     respond_to do |format|
       if @product_backlog.save
-        format.html { redirect_to @product_backlog, notice: 'Product backlog was successfully created.' }
+        format.html { redirect_to project_product_backlog_path(@project, @product_backlog), notice: 'Product backlog was successfully created.' }
         format.json { render json: @product_backlog, status: :created, location: @product_backlog }
       else
         format.html { render action: "new" }
@@ -65,7 +66,7 @@ class ProductBacklogsController < ApplicationController
 
     respond_to do |format|
       if @product_backlog.update_attributes(params[:product_backlog])
-        format.html { redirect_to @product_backlog, notice: 'Product backlog was successfully updated.' }
+        format.html { redirect_to project_product_backlog_path(@product_backlog.project, @product_backlog), notice: 'Product backlog was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

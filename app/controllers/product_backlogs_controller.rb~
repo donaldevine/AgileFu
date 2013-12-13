@@ -24,7 +24,6 @@ class ProductBacklogsController < ApplicationController
   # GET /product_backlogs/new
   # GET /product_backlogs/new.json
   def new
-  	# Retrieve project 
   	@project = Project.find(params[:project_id])
     @product_backlog = ProductBacklog.new
 
@@ -50,7 +49,7 @@ class ProductBacklogsController < ApplicationController
 
     respond_to do |format|
       if @product_backlog.save
-        format.html { redirect_to @product_backlog, notice: 'Product backlog was successfully created.' }
+        format.html { redirect_to project_product_backlogs_path(@project, @product_backlog), notice: 'Product backlog was successfully created.' }
         format.json { render json: @product_backlog, status: :created, location: @product_backlog }
       else
         format.html { render action: "new" }
