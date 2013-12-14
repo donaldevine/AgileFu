@@ -1,4 +1,13 @@
 Agilefu::Application.routes.draw do
+  resources :sprints
+
+
+  resources :tasks
+
+
+  resources :stories
+
+
   devise_for :users
 
   resources :product_backlogs, :only => [:index]

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @sprint.project_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @sprint.description %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @sprint.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @sprint.end_date %>
+</p>
+
+<p>
+  <b>Sprint review:</b>
+  <%= @sprint.sprint_review %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @sprint.priority %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @sprint.position %>
+</p>
+
+
+<%= link_to 'Edit', edit_sprint_path(@sprint) %> |
+<%= link_to 'Back', sprints_path %>

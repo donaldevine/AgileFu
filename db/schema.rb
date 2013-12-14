@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213173523) do
+ActiveRecord::Schema.define(:version => 20131214224936) do
 
   create_table "product_backlogs", :force => true do |t|
     t.string   "title"
@@ -32,6 +32,38 @@ ActiveRecord::Schema.define(:version => 20131213173523) do
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
     t.integer  "user_id"
+  end
+
+  create_table "sprints", :force => true do |t|
+    t.integer  "project_id"
+    t.text     "description"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "sprint_review"
+    t.integer  "priority"
+    t.integer  "position"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "stories", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "project_id"
+    t.integer  "priority"
+    t.integer  "best_case_estimate"
+    t.integer  "worst_case_estimate"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.integer  "story_id"
+    t.text     "description"
+    t.integer  "priority"
+    t.integer  "position"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

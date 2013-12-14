@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  project_id: 1
+  priority: 1
+  best_case_estimate: 1
+  worst_case_estimate: 1
+
+two:
+  title: MyString
+  description: MyText
+  project_id: 1
+  priority: 1
+  best_case_estimate: 1
+  worst_case_estimate: 1
