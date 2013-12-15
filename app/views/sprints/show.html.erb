@@ -36,5 +36,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_sprint_path(@sprint) %> |
-<%= link_to 'Back', sprints_path %>
+<%= button_to "Edit", edit_sprint_path(@sprint), :method => "get", :class => "btn btn-default" %>
+<%= button_to "Back", sprints_path, :method => "get", :class => "btn btn-default" %>

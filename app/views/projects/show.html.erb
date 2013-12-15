@@ -1,23 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @project.name %>
+  <b>Name:</b> <%= @project.name %>
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @project.description %>
+  <b>Description:</b> <%= @project.description %>
 </p>
 
 <p>
-  <b>Target start date:</b>
-  <%= @project.target_start_date %>
+  <b>Target start date:</b> <%= @project.target_start_date %>
 </p>
 
 <p>
-  <b>Target completion date:</b>
-  <%= @project.target_completion_date %>
+  <b>Target completion date:</b> <%= @project.target_completion_date %>
 </p>
 
 <table class="table">
@@ -38,6 +34,5 @@
  	<%= link_to 'New Product Backlog', new_project_product_backlog_path(@project) %>
 </p>
 
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= button_to "Edit", edit_project_path(@project), :method => "get", :class => "btn btn-default" %>
+<%= button_to "Back", projects_path, :method => "get", :class => "btn btn-default" %> 

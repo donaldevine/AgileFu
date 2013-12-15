@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @sprint %> |
-<%= link_to 'Back', sprints_path %>
+
+<%= button_to "Show", @sprint, :method => "get", :class => "btn btn-default" %>
+<%= button_to "Back", sprints_path, :method => "get", :class => "btn btn-default" %>

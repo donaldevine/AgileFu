@@ -1,6 +1,6 @@
 <h1>Listing tasks</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Story</th>
     <th>Description</th>
@@ -26,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Task', new_task_path %>
+<%= button_to "New Task", new_task_path, :method => "get", :class => "btn btn-default" %>

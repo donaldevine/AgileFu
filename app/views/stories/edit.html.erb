@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @story %> |
-<%= link_to 'Back', stories_path %>
+
+
+<%= button_to "Show", @story, :method => "get", :class => "btn btn-default" %>
+<%= button_to "Back", stories_path, :method => "get", :class => "btn btn-default" %>
