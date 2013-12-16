@@ -1,4 +1,9 @@
 class ProductBacklogsController < ApplicationController
+  
+    # Devise uses this to control access to only allow signed in users access to see projects
+  before_filter :authenticate_user!, only: [:new, :create]
+  before_filter :owns_product_backlog, only: [:show, :edit, :update, :destroy]
+
   # GET /product_backlogs
   # GET /product_backlogs.json
   def index
@@ -87,4 +92,14 @@ class ProductBacklogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def owns_product_backlog
+
+    if !user_signed_in? || current_user != ProductBacklog.find(params[:id]).project.user           
+        redirect_to projects_path, error: "You do not have permission to peform that action."  
+      end 
+    end  
+  end
+
 end

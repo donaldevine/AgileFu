@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
   
   # Devise uses this to control access to only allow signed in users access to see projects
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_filter :owns_project, only: [:edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create]
+  before_filter :owns_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
