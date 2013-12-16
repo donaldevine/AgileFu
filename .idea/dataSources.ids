@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails agilefu: development" uuid="7a7007fa-1d73-4616-99bc-2bcd99a22d45">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails agilefu: test" uuid="019c06d0-4695-4ca7-859e-797ba8285975">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails agilefu: production" uuid="9e00b70a-db1b-4a9c-9c38-f3755f523420">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

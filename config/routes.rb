@@ -8,7 +8,7 @@ Agilefu::Application.routes.draw do
   resources :sprints
 
 
-  resources :tasks
+ #  resources :tasks
 
 
   resources :stories
