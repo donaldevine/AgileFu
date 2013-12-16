@@ -97,8 +97,7 @@ class ProductBacklogsController < ApplicationController
   def owns_product_backlog
 
     if !user_signed_in? || current_user != ProductBacklog.find(params[:id]).project.user           
-        redirect_to projects_path, error: "You do not have permission to peform that action."  
-      end 
+        redirect_to projects_path, error: "You do not have permission to peform that action."        
     end  
   end
 
