@@ -1,27 +1,19 @@
-<h1>Listing projects</h1>
+<h1>My Projects</h1>
 
 <table class="table">
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Target start date</th>
-    <th>Target completion date</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Target Start</th>
+    <th>Target End</th>
   </tr>
 
 <% @projects.each do |project| %>
   <tr>
-    <td><%= project.name %></td>
+    <td><%= link_to project.name, edit_project_path(project) %></td>
     <td><%= project.description %></td>
     <td><%= project.target_start_date %></td>
     <td><%= project.target_completion_date %></td>
-    <td><%= link_to 'Show', project %></td>
-    <% if user_signed_in? && current_user == project.user %>
-      <td><%= link_to 'Edit', edit_project_path(project) %></td>
-      <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
   </tr>
 <% end %>
 </table>

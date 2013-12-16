@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Agilefu" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "AgileFu" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -22,31 +22,25 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-inner">
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">agileFu</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
-            	<% if user_signed_in? %>
-            		<li><%= link_to current_user.email, edit_user_registration_path %></li>
-              		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-              	<% else %>
-              		<li><%= link_to "Sign Up", new_user_registration_path %></li>
-              		<li><%= link_to "Log In", new_user_session_path %> </li>
-              	<% end %>
-              	<li><%= link_to "Projects", projects_path %></li>
-              	<li><%= link_to "BPIs", product_backlogs_path  %></li>
+          <a class="brand" href="/">Agile Fu</a>
+
+          <ul class="nav">
+              	<li class="navbar-link"><%= link_to "Projects", projects_path %></li>
+              	<li class="navbar-link"><%= link_to "BPIs", product_backlogs_path  %></li>
             </ul>
-          </div><!--/.nav-collapse -->
+          <ul class="nav pull-right">
+            <% if user_signed_in? %>
+                <li class="navbar-link"><%= link_to current_user.email, edit_user_registration_path %></li>
+                <li class="navbar-link"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+                <li class="navbar-link"><%= link_to "Sign Up", new_user_registration_path %></li>
+                <li class="navbar-link"><%= link_to "Log In", new_user_session_path %> </li>
+            <% end %>
+          </ul>
         </div>
-      </div>
     </div>
 
     <div class="container">

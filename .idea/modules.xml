@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/agilefu.iml" filepath="$PROJECT_DIR$/.idea/agilefu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../gclndr/.idea/gclndr.iml" filepath="$PROJECT_DIR$/../gclndr/.idea/gclndr.iml" />
     </modules>
   </component>
 </project>
