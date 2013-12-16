@@ -1,7 +1,5 @@
-class ApplicationController < ActionController::Base
-  	protect_from_forgery
-  	
-  	def after_sign_in_path_for(resource)
+class SessionsController < Devise::SessionsController
+	def after_sign_in_path_for(user)
 		profile = Profile.find_by_user_id(current_user.id)
 
 		unless profile.nil?

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131214224936) do
+ActiveRecord::Schema.define(:version => 20131216010535) do
 
   create_table "product_backlogs", :force => true do |t|
     t.string   "title"
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(:version => 20131214224936) do
     t.datetime "updated_at",  :null => false
     t.integer  "project_id"
   end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "company"
+    t.string   "website"
+    t.string   "linkedin_account"
+    t.string   "phone"
+    t.string   "mobile"
+    t.integer  "user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
 
   create_table "projects", :force => true do |t|
     t.string   "name"
