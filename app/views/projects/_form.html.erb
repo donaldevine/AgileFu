@@ -1,8 +1,7 @@
-<%= form_for(@project) do |f| %>
+<%= form_for @project, html: {class: "form-horizontal"} do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
       <ul>
       <% @project.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,22 +9,34 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %> <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :target_start_date %>
-    <%= f.text_field :target_start_date, :class => "jquery-ui-date" %>
-  </div>
-  <div class="field">
-    <%= f.label :target_completion_date %><%= f.date_select :target_completion_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <fieldset>
+    <div class="control-group">
+      <%= f.label :name, :class => "control-label" %> 
+      <div class="controls">
+        <%= f.text_field :name, :placeholder => "My Project Name..." %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :description, :class => "control-label" %> 
+      <div class="controls">
+        <%= f.text_area :description, :rows => "3", :placeholder => "My Project description..." %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :target_start_date, :class => "control-label" %> 
+      <div class="controls">
+        <%= f.text_field :target_start_date, :class => "datepicker" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :target_completion_date, :class => "control-label" %> 
+      <div class="controls">
+        <%= f.text_field :target_completion_date, :class => "datepicker" %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.submit :class => "btn btn-primary" %>
+    </div>
+  </fieldset>  
 <% end %>
+<%= javascript_include_tag "datestuff" %>

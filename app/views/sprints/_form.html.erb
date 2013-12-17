@@ -1,4 +1,4 @@
-<%= form_for(@sprint) do |f| %>
+<%= form_for @sprint, html: {class: "form-horizontal"}  do |f| %>
   <% if @sprint.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sprint.errors.count, "error") %> prohibited this sprint from being saved:</h2>
@@ -10,36 +10,46 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :project_id %><br />
-    <%= f.number_field :project_id %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :sprint_review %><br />
-    <%= f.text_area :sprint_review %>
-  </div>
-  <div class="field">
-    <%= f.label :priority %><br />
-    <%= f.number_field :priority %>
-  </div>
-  <div class="field">
-    <%= f.label :position %><br />
-    <%= f.number_field :position %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <fieldset>
+      <div class="control-group">
+        <%= f.label :description, :class => "control-label" %><br />
+        <div class="controls">
+          <%= f.text_area :description, :rows => "3", :placeholder => "Description of sprint..." %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :start_date, :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :start_date, :class => "datepicker" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :priority, :class => "control-label" %>
+        <div class="controls">
+          <%= f.number_field :priority, :class => "datepicker" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :position, :class => "control-label" %>
+        <div class="controls">
+          <%= f.number_field :position, :class => "datepicker" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :end_date, :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :end_date, :class => "datepicker" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :sprint_review, :class => "control-label" %><br />
+        <div class="controls">
+          <%= f.text_area :sprint_review, :rows => "3", :placeholder => "Review of sprint..." %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= f.submit :class => "btn btn-primary" %>
+      </div>
+    </fieldset>
 <% end %>
+<%= javascript_include_tag "datestuff" %>
