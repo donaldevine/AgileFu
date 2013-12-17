@@ -83,13 +83,33 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def projectdashboard
+    profile = Profile.find_by_user_id(current_user.id)
+    if profile.nil?
+      redirect_to "/profiles/new"
+    else
+      @user = User.find(current_user.id)
+      @profile = Profile.find_by_user_id(@user.id)
+      @bikes = Bike.find_all_by_user_id(@user.id)
+      respond_to do |format|
+        format.html # projectdashboard.html.erb
+        format.json { head :no_content }
+      end
+    end
+  end
+
   def myprofile
     profile = Profile.find_by_user_id(current_user.id)
 
     unless profile.nil?
-      redirect_to "/profiles/#{profile.id}"
+      @user = User.find(current_user.id)
+      @profile = Profile.find_by_user_id(@user.id)
+      redirect_to "/profiles/#{@profile.id}"
     else
       redirect_to "/profiles/new"
     end
   end
+
+
+
 end

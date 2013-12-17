@@ -19,10 +19,12 @@ stories.js: stories-9432df8f777f0560712ea27268f70e80.js
 stories/index.js: stories-9432df8f777f0560712ea27268f70e80.js
 tasks.js: tasks-9432df8f777f0560712ea27268f70e80.js
 tasks/index.js: tasks-9432df8f777f0560712ea27268f70e80.js
-application.css: application-4a8f78274b67a9fe83575b401189136c.css
-application/index.css: application-4a8f78274b67a9fe83575b401189136c.css
+application.css: application-0829c3e331e8612c519f478dc86eea79.css
+application/index.css: application-0829c3e331e8612c519f478dc86eea79.css
 bootstrap_and_overrides.css: bootstrap_and_overrides-4327e0e3d07d42b8bd51a844ed5c7b7f.css
 bootstrap_and_overrides/index.css: bootstrap_and_overrides-4327e0e3d07d42b8bd51a844ed5c7b7f.css
+pagination.css: pagination-ff2eccf0d2a3a9dbf9b7c87ece81fd8c.css
+pagination/index.css: pagination-ff2eccf0d2a3a9dbf9b7c87ece81fd8c.css
 product_backlogs.css: product_backlogs-499558d994e21b4709ded4fbd1abd8f5.css
 product_backlogs/index.css: product_backlogs-499558d994e21b4709ded4fbd1abd8f5.css
 profiles.css: profiles-499558d994e21b4709ded4fbd1abd8f5.css
