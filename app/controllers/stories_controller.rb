@@ -1,4 +1,8 @@
 class StoriesController < ApplicationController
+
+  # Handle errors if no records found
+  around_filter :catch_not_found
+
   # GET /stories
   # GET /stories.json
   def index
@@ -79,5 +83,16 @@ class StoriesController < ApplicationController
       format.html { redirect_to stories_url }
       format.json { head :no_content }
     end
+  end
+
+  # private methods start here
+  private
+
+  # catches active record not found errors and redirects to root
+  def catch_not_found
+    yield
+
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_url, :flash => {:error => "Record not found."}
   end
 end

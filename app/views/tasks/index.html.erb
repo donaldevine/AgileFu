@@ -1,4 +1,4 @@
-<h1>Listing tasks</h1>
+<h1>Tasks for Sprint <%= @tasks.sprint.name</h1>
 
 <table class="table">
   <tr>
@@ -6,20 +6,14 @@
     <th>Description</th>
     <th>Priority</th>
     <th>Position</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= task.story_id %></td>
-    <td><%= task.description %></td>
-    <td><%= task.priority %></td>
-    <td><%= task.position %></td>
-    <td><%= link_to 'Show', task %></td>
-    <td><%= link_to 'Edit', edit_task_path(task) %></td>
-    <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to task.story_id, edit_task_path(task) %></td>
+    <td><%= link_to task.description, edit_task_path(task) %></td>
+    <td><%= link_to task.priority, edit_task_path(task) %></td>
+    <td><%= link_to task.position, edit_task_path(task) %></td>
   </tr>
 <% end %>
 </table>

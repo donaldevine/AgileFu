@@ -1,4 +1,4 @@
-<h1>Listing stories</h1>
+<h1>Stories for Project <%= @sprints.project.name %></h1>
 
 <table>
   <tr>
@@ -8,22 +8,16 @@
     <th>Priority</th>
     <th>Best case estimate</th>
     <th>Worst case estimate</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @stories.each do |story| %>
   <tr>
-    <td><%= story.title %></td>
-    <td><%= story.description %></td>
-    <td><%= story.project_id %></td>
-    <td><%= story.priority %></td>
-    <td><%= story.best_case_estimate %></td>
-    <td><%= story.worst_case_estimate %></td>
-    <td><%= link_to 'Show', story %></td>
-    <td><%= link_to 'Edit', edit_story_path(story) %></td>
-    <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to story.title, edit_story_path(story) %></td>
+    <td><%= link_to story.description, edit_story_path(story) %></td>
+    <td><%= link_to story.project_id, edit_story_path(story) %></td>
+    <td><%= link_to story.priority, edit_story_path(story) %></td>
+    <td><%= link_to story.best_case_estimate, edit_story_path(story) %></td>
+    <td><%= link_to story.worst_case_estimate, edit_story_path(story) %></td>
   </tr>
 <% end %>
 </table>

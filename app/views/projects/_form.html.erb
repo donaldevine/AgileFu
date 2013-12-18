@@ -34,9 +34,41 @@
         <%= f.text_field :target_completion_date, :class => "datepicker" %>
       </div>
     </div>
+
     <div class="form-actions">
       <%= f.submit :class => "btn btn-primary" %>
     </div>
-  </fieldset>  
+  </fieldset>
+    <hr/>
+    <legend>Sprints for this Project:</legend>
+    <table class="table">
+      <tr>
+        <th>Description</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Sprint review</th>
+        <th>Priority</th>
+        <th>Position</th>
+      </tr>    
+      <%= f.fields_for :sprints do |builder| %>
+        <%= render "sprint_fields", :f => builder %>
+      <% end %>
+    </table>
+    <hr/>
+    <legend>Product Backlog for this Project:</legend>
+    <table class="table">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Iteration</th>
+        <th>Reason</th>
+        <th>Priority</th>
+      </tr>
+      <%= f.fields_for :product_backlogs do |builder| %>
+        <%= render "product_backlog_fields", :f => builder %>
+      <% end %>
+    </table>
+    <hr/>
+      
 <% end %>
 <%= javascript_include_tag "datestuff" %>

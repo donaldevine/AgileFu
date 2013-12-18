@@ -1,4 +1,4 @@
-<h1>Listing product_backlogs</h1>
+<h1>Product Backlog for Project <%= @sprints.project.name %></h1>
 
 <table class="table">
   <tr>
@@ -7,21 +7,15 @@
     <th>Iteration</th>
     <th>Reason</th>
     <th>Priority</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @product_backlogs.each do |product_backlog| %>
   <tr>
-    <td><%= product_backlog.title %></td>
-    <td><%= product_backlog.description %></td>
-    <td><%= product_backlog.iteration %></td>
-    <td><%= product_backlog.reason %></td>
-    <td><%= product_backlog.priority %></td>
-    <td><%= link_to 'Show', project_product_backlog_path(product_backlog.project, product_backlog)  %></td>
-    <td><%= link_to 'Edit', edit_project_product_backlog_path(product_backlog.project, product_backlog) %></td>
-    <td><%= link_to 'Destroy', project_product_backlog_path(product_backlog.project, product_backlog), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to product_backlog.title, edit_project_product_backlog_path(product_backlog.project, product_backlog) %></td>
+    <td><%= link_to product_backlog.description, edit_project_product_backlog_path(product_backlog.project, product_backlog) %></td>
+    <td><%= link_to product_backlog.iteration, edit_project_product_backlog_path(product_backlog.project, product_backlog) %></td>
+    <td><%= link_to product_backlog.reason, edit_project_product_backlog_path(product_backlog.project, product_backlog) %></td>
+    <td><%= link_to product_backlog.priority, edit_project_product_backlog_path(product_backlog.project, product_backlog) %></td>
   </tr>
 <% end %>
 </table>

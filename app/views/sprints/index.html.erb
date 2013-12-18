@@ -1,31 +1,23 @@
-<h1>Listing sprints</h1>
+<h1>Sprints for Project <%= @sprints.project.name %></h1>
 
 <table class="table">
   <tr>
-    <th>Project</th>
     <th>Description</th>
     <th>Start date</th>
     <th>End date</th>
     <th>Sprint review</th>
     <th>Priority</th>
     <th>Position</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @sprints.each do |sprint| %>
   <tr>
-    <td><%= sprint.project_id %></td>
-    <td><%= sprint.description %></td>
-    <td><%= sprint.start_date %></td>
-    <td><%= sprint.end_date %></td>
-    <td><%= sprint.sprint_review %></td>
-    <td><%= sprint.priority %></td>
-    <td><%= sprint.position %></td>
-    <td><%= link_to 'Show', sprint %></td>
-    <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
-    <td><%= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to sprint.description, edit_sprint_path(sprint) %></td>
+    <td><%= link_to sprint.start_date, edit_sprint_path(sprint) %></td>
+    <td><%= link_to sprint.end_date, edit_sprint_path(sprint) %></td>
+    <td><%= link_to sprint.sprint_review, edit_sprint_path(sprint) %></td>
+    <td><%= link_to sprint.priority, edit_sprint_path(sprint) %></td>
+    <td><%= link_to sprint.position, edit_sprint_path(sprint) %></td>
   </tr>
 <% end %>
 </table>
