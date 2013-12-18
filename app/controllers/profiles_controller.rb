@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   # Handle errors if no records found
-  around_filter :catch_not_found
+  around_filter :catch_not_found, :only => [:edit, :delete]
 
   # GET /profiles
   # GET /profiles.json
@@ -87,20 +87,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def projectdashboard
-    profile = Profile.find_by_user_id(current_user.id)
-    if profile.nil?
-      redirect_to "/profiles/new"
-    else
-      @user = User.find(current_user.id)
-      @profile = Profile.find_by_user_id(@user.id)
-      @bikes = Bike.find_all_by_user_id(@user.id)
-      respond_to do |format|
-        format.html # projectdashboard.html.erb
-        format.json { head :no_content }
-      end
-    end
-  end
 
   def myprofile
     profile = Profile.find_by_user_id(current_user.id)
@@ -122,7 +108,7 @@ class ProfilesController < ApplicationController
     yield
 
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_url, :flash => {:error => "Record not found."}
+    redirect_to root_path
   end
 
 end

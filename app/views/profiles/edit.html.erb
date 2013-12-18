@@ -1,6 +1,5 @@
-<h1>Editing profile</h1>
+<legend>Edit Profile</legend>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>
+<%= button_to "Back", root_path, :method => "get", :class => "btn btn-default" %>

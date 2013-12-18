@@ -12,17 +12,19 @@
 
 <% @sprints.each do |sprint| %>
   <tr>
-    <td><%= link_to sprint.description, edit_sprint_path(sprint) %></td>
-    <td><%= link_to sprint.start_date, edit_sprint_path(sprint) %></td>
-    <td><%= link_to sprint.end_date, edit_sprint_path(sprint) %></td>
-    <td><%= link_to sprint.sprint_review, edit_sprint_path(sprint) %></td>
-    <td><%= link_to sprint.priority, edit_sprint_path(sprint) %></td>
-    <td><%= link_to sprint.position, edit_sprint_path(sprint) %></td>
+    <td><%= link_to_unless(sprint.description.nil?, sprint.description, edit_project_sprint_path(@project, sprint)) %></td>
+    <td><%= link_to_unless(sprint.start_date.nil?, sprint.start_date, edit_project_sprint_path(@project, sprint)) %></td>
+    <td><%= link_to_unless(sprint.end_date.nil?, sprint.end_date, edit_project_sprint_path(@project, sprint)) %></td>
+    <td><%= link_to_unless(sprint.sprint_review.nil?, sprint.sprint_review, edit_project_sprint_path(@project, sprint)) %></td>
+    <td><%= link_to_unless(sprint.priority.nil?, sprint.priority, edit_project_sprint_path(@project, sprint)) %></td>
+    <td><%= link_to_unless(sprint.position.nil?, sprint.position, edit_project_sprint_path(@project, sprint)) %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= button_to "New Sprint", new_sprint_path, :method => "get", :class => "btn btn-default" %>
-<%= button_to "Back", sprints_path, :method => "get", :class => "btn btn-default" %>
+<%= button_to "New Sprint", new_sprint_path, :method => "get", :class => "btn btn-primary" %>
+<%= button_to "Back", sprints_path, :method => "get", :class => "btn btn-primary" %>
+
+

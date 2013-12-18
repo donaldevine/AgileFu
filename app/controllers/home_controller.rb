@@ -1,10 +1,11 @@
 class HomeController < ApplicationController
 	
 	# check auth before we do anything
-	skip_before_filter :authenticate_user!
+	#skip_before_filter :authenticate_user!
 	before_filter :check_auth
 
 	def index
+    @projects = Project.find_all_by_user_id(current_user.id)
   end
 
   # methods below this will be private

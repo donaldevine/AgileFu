@@ -1,12 +1,12 @@
 class StoriesController < ApplicationController
 
   # Handle errors if no records found
-  around_filter :catch_not_found
+  around_filter :catch_not_found, :only => [:edit, :delete]
 
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    @stories = Story.find_all_by_user_id(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,6 +28,7 @@ class StoriesController < ApplicationController
   # GET /stories/new
   # GET /stories/new.json
   def new
+    @project = Project.find(params[:project_id])
     @story = Story.new
 
     respond_to do |format|
@@ -93,6 +94,6 @@ class StoriesController < ApplicationController
     yield
 
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_url, :flash => {:error => "Record not found."}
+    redirect_to root_path
   end
 end

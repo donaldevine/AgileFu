@@ -1,13 +1,13 @@
 class SprintsController < ApplicationController
 
   # Handle errors if no records found
-  around_filter :catch_not_found
+  around_filter :catch_not_found, :only => [:edit, :delete]
 
 
   # GET /sprints
   # GET /sprints.json
   def index
-    @sprints = Sprint.all
+    @sprints = Sprint.find_all_by_user_id(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,6 +18,7 @@ class SprintsController < ApplicationController
   # GET /sprints/1
   # GET /sprints/1.json
   def show
+    @project = Project.find(params[:project_id])
     @sprint = Sprint.find(params[:id])
 
     respond_to do |format|
@@ -29,6 +30,7 @@ class SprintsController < ApplicationController
   # GET /sprints/new
   # GET /sprints/new.json
   def new
+    @project = Project.find(params[:project_id])
     @sprint = Sprint.new
 
     respond_to do |format|
@@ -39,17 +41,19 @@ class SprintsController < ApplicationController
 
   # GET /sprints/1/edit
   def edit
+    @project = Project.find(params[:project_id])
     @sprint = Sprint.find(params[:id])
   end
 
   # POST /sprints
   # POST /sprints.json
   def create
-    @sprint = Sprint.new(params[:sprint])
+    @project = Project.find(params[:project_id])
+    @sprint = @project.sprints.new(params[:product_backlog])
 
     respond_to do |format|
       if @sprint.save
-        format.html { redirect_to @sprint, notice: 'Sprint was successfully created.' }
+        format.html { redirect_to project_sprint_path(@project, @sprint) , notice: 'Sprint was successfully created.' }
         format.json { render json: @sprint, status: :created, location: @sprint }
       else
         format.html { render action: "new" }
@@ -62,10 +66,11 @@ class SprintsController < ApplicationController
   # PUT /sprints/1.json
   def update
     @sprint = Sprint.find(params[:id])
+    @project = Project.find (@sprint.project_id)
 
     respond_to do |format|
       if @sprint.update_attributes(params[:sprint])
-        format.html { redirect_to @sprint, notice: 'Sprint was successfully updated.' }
+        format.html { redirect_to project_sprint_path(@project, @sprint), notice: 'Sprint was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -94,6 +99,6 @@ class SprintsController < ApplicationController
     yield
 
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_url, :flash => {:error => "Record not found."}
+    redirect_to root_path
   end
 end

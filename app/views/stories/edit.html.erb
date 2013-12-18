@@ -1,8 +1,5 @@
-<h1>Editing story</h1>
+<legend>Edit Story</legend>
 
 <%= render 'form' %>
 
-
-
-<%= button_to "Show", @story, :method => "get", :class => "btn btn-default" %>
-<%= button_to "Back", stories_path, :method => "get", :class => "btn btn-default" %>
+<%= button_to "Back", project_path(@project), :method => "get", :class => "btn btn-default" %>

@@ -34,5 +34,5 @@
 </p>
 
 
-<%= button_to "Edit", edit_sprint_path(@sprint), :method => "get", :class => "btn btn-default" %>
-<%= button_to "Back", sprints_path, :method => "get", :class => "btn btn-default" %>
+<%= button_to "Edit", edit_project_sprint_path(@project, @sprint), :method => "get", :class => "btn btn-primary" %>
+<%= button_to "Back", project_path(@project), :method => "get", :class => "btn btn-primary" %>

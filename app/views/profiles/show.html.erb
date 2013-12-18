@@ -39,5 +39,6 @@
 </p>
 
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<%= button_to "Edit", edit_profile_path(@profile), :method => "get", :class => "btn btn-primary" %>
+<%= button_to "Back", profile_path(@profile), :method => "get", :class => "btn btn-primary" %>
+

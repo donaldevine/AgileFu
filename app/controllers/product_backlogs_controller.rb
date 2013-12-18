@@ -5,13 +5,13 @@ class ProductBacklogsController < ApplicationController
   before_filter :owns_product_backlog, only: [:show, :edit, :update, :destroy]
 
   # Handle errors if no records found
-  around_filter :catch_not_found
+  around_filter :catch_not_found, :only => [:edit, :delete]
 
 
   # GET /product_backlogs
   # GET /product_backlogs.json
   def index
-    @product_backlogs = ProductBacklog.all
+    @product_backlogs = ProductBacklog.find_all_by_user_id(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,7 +47,7 @@ class ProductBacklogsController < ApplicationController
   def edit
   	# Retrieve project 
   	@project = Project.find(params[:project_id])
-    	@product_backlog = ProductBacklog.find(params[:id])
+    @product_backlog = ProductBacklog.find(params[:id])
   end
 
   # POST /product_backlogs
@@ -55,7 +55,7 @@ class ProductBacklogsController < ApplicationController
   def create
   	# Retrieve project 
   	@project = Project.find(params[:project_id])
-    	@product_backlog = @project.product_backlogs.new(params[:product_backlog])
+    @product_backlog = @project.product_backlogs.new(params[:product_backlog])
 
     respond_to do |format|
       if @product_backlog.save
@@ -72,11 +72,11 @@ class ProductBacklogsController < ApplicationController
   # PUT /product_backlogs/1.json
   def update
     @product_backlog = ProductBacklog.find(params[:id])
-    @project = @product_backlog.project 
+    @project = Project.find (@product_backlog.project_id)
 
     respond_to do |format|
       if @product_backlog.update_attributes(params[:product_backlog])
-        format.html { redirect_to project_product_backlog_path(@product_backlog.project, @product_backlog), notice: 'Product backlog was successfully updated.' }
+        format.html { redirect_to project_product_backlog_path(@project, @product_backlog), notice: 'Product backlog was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -100,8 +100,15 @@ class ProductBacklogsController < ApplicationController
 
   def owns_product_backlog
 
-    if !user_signed_in? || current_user != ProductBacklog.find(params[:id]).project.user           
-        redirect_to projects_path, error: "You do not have permission to peform that action."        
+    unless user_signed_in?
+      redirect_to root_path, error: "You must sign in first!"
+    end
+
+    product_backlog = ProductBacklog.find(params[:id])
+    project = Project.find (product_backlog.project_id)
+
+    if current_user != project.user
+      redirect_to projects_path, error: "You do not have permission to peform that action."
     end  
   end
 

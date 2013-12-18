@@ -1,17 +1,18 @@
 class ProjectsController < ApplicationController
 
+  # Handle errors if no records found
+  around_filter :catch_not_found, :only => [:edit, :delete]
+
   # Devise uses this to control access to only allow signed in users access to see projects
   before_filter :authenticate_user!
-  before_filter :owns_project
+  before_filter :owns_project, :only => [:edit, :delete]
 
-  # Handle errors if no records found
-  around_filter :catch_not_found
 
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.find_all_by_user_id(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,6 +45,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    @sprints = @project.sprints
+    @product_backlogs = @project.product_backlogs
   end
 
   # POST /projects
@@ -91,20 +94,20 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def owns_project
-    if !user_signed_in? || current_user != Project.find(params[:id]).user
-      redirect_to projects_path, error: "You do not have permission to peform that action."  
-    end  
-  end
-
   # private methods start here
   private
+
+  def owns_project
+    if !user_signed_in? || current_user != Project.find(params[:id]).user
+      redirect_to projects_path, error: "You do not have permission to peform that action."
+    end
+  end
 
   # catches active record not found errors and redirects to root
   def catch_not_found
     yield
 
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_url, :flash => {:error => "Record not found."}
+    redirect_to root_path
   end
 end

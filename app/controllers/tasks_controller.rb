@@ -1,12 +1,12 @@
 class TasksController < ApplicationController
 
   # Handle errors if no records found
-  around_filter :catch_not_found
+  around_filter :catch_not_found, :only => [:edit, :delete]
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.find_all_by_user_id(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -93,6 +93,6 @@ class TasksController < ApplicationController
     yield
 
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_url, :flash => {:error => "Record not found."}
+      redirect_to root_path
   end
 end

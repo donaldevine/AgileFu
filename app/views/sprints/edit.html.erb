@@ -1,7 +1,5 @@
-<h1>Editing sprint</h1>
+<legend>Edit Sprint</legend>
 
 <%= render 'form' %>
 
-
-<%= button_to "Show", @sprint, :method => "get", :class => "btn btn-default" %>
-<%= button_to "Back", sprints_path, :method => "get", :class => "btn btn-default" %>
+<%= button_to "Back", project_path(@project), :method => "get", :class => "btn btn-default" %>

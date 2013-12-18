@@ -29,5 +29,5 @@
 </p>
 
 
-<%= button_to "Edit", edit_story_path(@story), :method => "get", :class => "btn btn-default" %>
-<%= button_to "Back", stories_path, :method => "get", :class => "btn btn-default" %>
+<%= button_to "Edit", edit_project_story_path(@project, @story), :method => "get", :class => "btn btn-primary" %>
+<%= button_to "Back", project_path(@project), :method => "get", :class => "btn btn-primary" %>

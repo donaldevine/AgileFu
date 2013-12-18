@@ -9,66 +9,103 @@
       </ul>
     </div>
   <% end %>
-  <fieldset>
-    <div class="control-group">
-      <%= f.label :name, :class => "control-label" %> 
-      <div class="controls">
-        <%= f.text_field :name, :placeholder => "My Project Name..." %>
-      </div>
+    <div class="span7">
+      <fieldset>
+        <div class="control-group">
+          <%= f.label :name, :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_field :name, :placeholder => "My Project Name..." %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :description, :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_area :description, :rows => "3", :placeholder => "My Project description..." %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :target_start_date, :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_field :target_start_date, :class => "datepicker" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :target_completion_date, :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_field :target_completion_date, :class => "datepicker" %>
+          </div>
+        </div>
+      </fieldset>
     </div>
-    <div class="control-group">
-      <%= f.label :description, :class => "control-label" %> 
-      <div class="controls">
-        <%= f.text_area :description, :rows => "3", :placeholder => "My Project description..." %>
-      </div>
+    <div class="span2">
+        <%= f.submit :class => "btn btn-primary" %>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <% unless @project.id.nil? %>
+          <%= button_to "Delete Project", project_path(@project), method: :delete, :class => "btn btn-danger", :confirm => "are you sure?" %>
+        <% end %>
     </div>
-    <div class="control-group">
-      <%= f.label :target_start_date, :class => "control-label" %> 
-      <div class="controls">
-        <%= f.text_field :target_start_date, :class => "datepicker" %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :target_completion_date, :class => "control-label" %> 
-      <div class="controls">
-        <%= f.text_field :target_completion_date, :class => "datepicker" %>
-      </div>
-    </div>
-
+    <% unless @sprints.nil? %>
+        <p></p>
+        <p></p>
+        <legend>Sprints for <%= @project.name %></legend>
+        <table class="table">
+          <tr>
+            <th>Description</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Sprint review</th>
+            <th>Priority</th>
+            <th>Position</th>
+          </tr>
+          <% @sprints.each do |sprint| %>
+              <tr>
+                <td><%= link_to_unless(sprint.description.nil?, sprint.description, edit_project_sprint_path(@project, sprint)) %></td>
+                <td><%= link_to_unless(sprint.start_date.nil?, sprint.start_date, edit_project_sprint_path(@project, sprint)) %></td>
+                <td><%= link_to_unless(sprint.end_date.nil?, sprint.end_date, edit_project_sprint_path(@project, sprint)) %></td>
+                <td><%= link_to_unless(sprint.sprint_review.nil?, sprint.sprint_review, edit_project_sprint_path(@project, sprint)) %></td>
+                <td><%= link_to_unless(sprint.priority.nil?, sprint.priority, edit_project_sprint_path(@project, sprint)) %></td>
+                <td><%= link_to_unless(sprint.position.nil?, sprint.position, edit_project_sprint_path(@project, sprint)) %></td>
+              </tr>
+          <% end %>
+        </table>
+    <% end %>
+    <% unless @project.id.nil? %>
+     <%= button_to "New Sprint", new_project_sprint_path(@project), :class => "btn btn-primary", :method => :get %>
+    <% end %>
+    <% unless @product_backlogs.nil? %>
+        <p></p>
+        <p></p>
+        <legend>Product Backlog for <%= @project.name %></legend>
+        <table class="table">
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Iteration</th>
+            <th>Reason</th>
+            <th>Priority</th>
+          </tr>
+          <% @product_backlogs.each do |product_backlog| %>
+              <tr>
+                <td><%= link_to_unless(product_backlog.title.nil?, product_backlog.title, edit_project_product_backlog_path(@project, product_backlog)) %></td>
+                <td><%= link_to_unless(product_backlog.description.nil?, product_backlog.description, edit_project_product_backlog_path(@project, product_backlog)) %></td>
+                <td><%= link_to_unless(product_backlog.iteration.nil?, product_backlog.iteration, edit_project_product_backlog_path(@project, product_backlog)) %></td>
+                <td><%= link_to_unless(product_backlog.reason.nil?, product_backlog.reason, edit_project_product_backlog_path(@project, product_backlog)) %></td>
+                <td><%= link_to_unless(product_backlog.priority.nil?, product_backlog.priority, edit_project_product_backlog_path(@project, product_backlog)) %></td>
+              </tr>
+          <% end %>
+        </table>
+    <% end %>
+    <% unless @project.id.nil? %>
+        <%= button_to "New Product Backlog", new_project_product_backlog_path(@project), :class => "btn btn-primary", :method => :get %>
+    <% end %>
+    </p>
+    </p>
     <div class="form-actions">
-      <%= f.submit :class => "btn btn-primary" %>
+
     </div>
-  </fieldset>
-    <hr/>
-    <legend>Sprints for this Project:</legend>
-    <table class="table">
-      <tr>
-        <th>Description</th>
-        <th>Start date</th>
-        <th>End date</th>
-        <th>Sprint review</th>
-        <th>Priority</th>
-        <th>Position</th>
-      </tr>    
-      <%= f.fields_for :sprints do |builder| %>
-        <%= render "sprint_fields", :f => builder %>
-      <% end %>
-    </table>
-    <hr/>
-    <legend>Product Backlog for this Project:</legend>
-    <table class="table">
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Iteration</th>
-        <th>Reason</th>
-        <th>Priority</th>
-      </tr>
-      <%= f.fields_for :product_backlogs do |builder| %>
-        <%= render "product_backlog_fields", :f => builder %>
-      <% end %>
-    </table>
-    <hr/>
-      
+    </p>
 <% end %>
 <%= javascript_include_tag "datestuff" %>

@@ -12,9 +12,15 @@ Agilefu::Application.routes.draw do
 
   #Nest related resources, this give a cleaner URL
   resources :projects do
-  	resources :product_backlogs
-    resources :sprints
     resources :stories
+  end
+
+  resources :projects do
+    resources :product_backlogs
+  end
+
+  resources :projects do
+    resources :sprints
   end
 
     

@@ -1,4 +1,4 @@
-<h1>Stories for Project <%= @sprints.project.name %></h1>
+<h1>Stories for Project <%= @project.name %></h1>
 
 <table>
   <tr>
@@ -12,16 +12,16 @@
 
 <% @stories.each do |story| %>
   <tr>
-    <td><%= link_to story.title, edit_story_path(story) %></td>
-    <td><%= link_to story.description, edit_story_path(story) %></td>
-    <td><%= link_to story.project_id, edit_story_path(story) %></td>
-    <td><%= link_to story.priority, edit_story_path(story) %></td>
-    <td><%= link_to story.best_case_estimate, edit_story_path(story) %></td>
-    <td><%= link_to story.worst_case_estimate, edit_story_path(story) %></td>
+    <td><%= link_to story.title, edit_project_story_path(@project, story) %></td>
+    <td><%= link_to story.description, edit_project_story_path(@project, story)  %></td>
+    <td><%= link_to story.project_id, edit_project_story_path(@project, story)  %></td>
+    <td><%= link_to story.priority, edit_project_story_path(@project, story)  %></td>
+    <td><%= link_to story.best_case_estimate, edit_project_story_path(@project, story)  %></td>
+    <td><%= link_to story.worst_case_estimate, edit_project_story_path(@project, story)  %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= button_to "New Story", new_story_path, :method => "get", :class => "btn btn-default" %>
+<%= button_to "New Story", new_project_story_path(@project) , :method => "get", :class => "btn btn-default" %>

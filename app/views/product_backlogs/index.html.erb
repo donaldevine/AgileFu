@@ -11,11 +11,11 @@
 
 <% @product_backlogs.each do |product_backlog| %>
   <tr>
-    <td><%= link_to product_backlog.title, edit_project_product_backlog_path(product_backlog.project, product_backlog) %></td>
-    <td><%= link_to product_backlog.description, edit_project_product_backlog_path(product_backlog.project, product_backlog) %></td>
-    <td><%= link_to product_backlog.iteration, edit_project_product_backlog_path(product_backlog.project, product_backlog) %></td>
-    <td><%= link_to product_backlog.reason, edit_project_product_backlog_path(product_backlog.project, product_backlog) %></td>
-    <td><%= link_to product_backlog.priority, edit_project_product_backlog_path(product_backlog.project, product_backlog) %></td>
+    <td><%= link_to_unless(product_backlog.title.nil?, product_backlog.title, edit_project_product_backlog_path(@project, product_backlog)) %></td>
+    <td><%= link_to_unless(product_backlog.description.nil?, product_backlog.description, edit_project_product_backlog_path(@project, product_backlog)) %></td>
+    <td><%= link_to_unless(product_backlog.iteration.nil?, product_backlog.iteration, edit_project_product_backlog_path(@project, product_backlog)) %></td>
+    <td><%= link_to_unless(product_backlog.reason.nil?, product_backlog.reason, edit_project_product_backlog_path(@project, product_backlog)) %></td>
+    <td><%= link_to_unless(product_backlog.priority.nil?, product_backlog.priority, edit_project_product_backlog_path(@project, product_backlog)) %></td>
   </tr>
 <% end %>
 </table>
