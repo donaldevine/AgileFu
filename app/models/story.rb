@@ -5,4 +5,6 @@ class Story < ActiveRecord::Base
 
   has_many :tasks 			# Story can have many tasks
 
+  # Input validation
+  validates_presence_of :description
 end

@@ -7,5 +7,6 @@ class Project < ActiveRecord::Base
   
   belongs_to :user 				# User can have many projects.
 
-  validates_presence_of :name 	# Input validation.
+  # Input validation.
+  validates_presence_of :name
 end
