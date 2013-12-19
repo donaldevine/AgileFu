@@ -5,5 +5,5 @@ class Sprint < ActiveRecord::Base
   belongs_to :project 		# Project can have many sprints
 
   # Input validation
-  validates_presence_of :description, :start_date
+  validates_presence_of :description
 end

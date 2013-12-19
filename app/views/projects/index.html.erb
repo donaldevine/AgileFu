@@ -10,15 +10,15 @@
 
 <% @projects.each do |project| %>
   <tr>
-    <td><%= link_to project.name, edit_project_path(project) %></td>
-    <td><%= link_to project.description, edit_project_path(project) %></td>
-    <td><%= link_to project.target_start_date, edit_project_path(project) %></td>
-    <td><%= link_to project.target_completion_date, edit_project_path(project) %></td>
+    <td><%= link_to_unless(project.name.nil?, project.name, edit_project_path(project)) %></td>
+    <td><%= link_to_unless(project.description.nil?, project.description, edit_project_path(project)) %></td>
+    <td><%= link_to_unless(project.target_start_date.nil?, project.target_start_date, edit_project_path(project)) %></td>
+    <td><%= link_to_unless(project.target_completion_date.nil?, project.target_completion_date, edit_project_path(project)) %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= button_to "New Project", new_project_path, :method => "get", :class => "btn btn-default" %>
+<%= button_to "New Project", new_project_path, :method => "get", :class => "btn btn-primary" %>
 

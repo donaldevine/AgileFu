@@ -10,14 +10,14 @@
 
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= link_to task.story_id, edit_task_path(task) %></td>
-    <td><%= link_to task.description, edit_task_path(task) %></td>
-    <td><%= link_to task.priority, edit_task_path(task) %></td>
-    <td><%= link_to task.position, edit_task_path(task) %></td>
+    <td><%= link_to_unless(task.story_id.nil?, task.story_id, edit_task_path(task)) %></td>
+    <td><%= link_to_unless(task.description.nil?, task.description, edit_task_path(task)) %></td>
+    <td><%= link_to_unless(task.priority.nil?, task.priority, edit_task_path(task)) %></td>
+    <td><%= link_to_unless(task.position.nil?, task.position, edit_task_path(task)) %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= button_to "New Task", new_task_path, :method => "get", :class => "btn btn-default" %>
+<%= button_to "New Task", new_task_path, :method => "get", :class => "btn btn-primary" %>

@@ -53,7 +53,7 @@ class SprintsController < ApplicationController
 
     respond_to do |format|
       if @sprint.save
-        format.html { redirect_to project_sprint_path(@project, @sprint) , notice: 'Sprint was successfully created.' }
+        format.html { redirect_to edit_project_path(@project) , notice: 'Sprint was successfully created.' }
         format.json { render json: @sprint, status: :created, location: @sprint }
       else
         format.html { render action: "new" }
