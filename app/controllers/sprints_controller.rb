@@ -49,7 +49,7 @@ class SprintsController < ApplicationController
   # POST /sprints.json
   def create
     @project = Project.find(params[:project_id])
-    @sprint = @project.sprints.new(params[:product_backlog])
+    @sprint = @project.sprints.new(params[:sprint])
 
     respond_to do |format|
       if @sprint.save
