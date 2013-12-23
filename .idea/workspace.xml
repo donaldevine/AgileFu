@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65982d04-6a3d-4f45-93b5-64955a30424c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sprints/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/sprints/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tasks/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/tasks/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/date_fu.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/date_fu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tasks/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/tasks/edit.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/landing_page/index.html.erb" afterPath="$PROJECT_DIR$/app/views/landing_page/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/landing_page_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/landing_page_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tasks/new.html.erb" afterPath="$PROJECT_DIR$/app/views/tasks/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tasks/show.html.erb" afterPath="$PROJECT_DIR$/app/views/tasks/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/sprint.rb" afterPath="$PROJECT_DIR$/app/models/sprint.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sprints_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sprints_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/task.rb" afterPath="$PROJECT_DIR$/app/models/task.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tasks_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tasks_controller.rb" />
     </list>
     <ignored path="agilefu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,36 +59,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/projects/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="0" selection-start="4825" selection-end="4864" vertical-scroll-proportion="-26.0" vertical-offset="1278" max-vertical-offset="2088">
-              <folding>
-                <marker date="1387778154418" expanded="true" signature="129:369" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="246:358" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="405:1415" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="422:1404" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="458:657" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="549:642" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="693:926" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="791:911" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="966:1153" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="1070:1138" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="1189:1386" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="1298:1371" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="1439:1764" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="1915:3054" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="1930:2136" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="2197:3017" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="3400:4544" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="3415:3580" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="3659:4507" placeholder="..." />
-                <marker date="1387778154418" expanded="true" signature="4792:4804" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/tasks/edit.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -137,10 +95,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sprints_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="sprints_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/sprints_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="5" selection-start="401" selection-end="401" vertical-scroll-proportion="0.33882353" vertical-offset="0" max-vertical-offset="1998">
+            <state line="21" column="17" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1998">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/landing_page/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="12" selection-start="661" selection-end="661" vertical-scroll-proportion="0.39368165" vertical-offset="0" max-vertical-offset="823">
               <folding />
             </state>
           </provider>
@@ -207,7 +174,6 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/controllers/landing_page_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/landing_page/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/landing.html.erb" />
         <option value="$PROJECT_DIR$/app/views/tasks/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/tasks/show.html.erb" />
@@ -219,6 +185,7 @@
         <option value="$PROJECT_DIR$/app/models/sprint.rb" />
         <option value="$PROJECT_DIR$/app/controllers/tasks_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sprints_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/landing_page/index.html.erb" />
       </list>
     </option>
   </component>
@@ -350,6 +317,32 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agilefu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agilefu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="landing_page" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -382,10 +375,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -402,28 +391,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agilefu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agilefu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -907,13 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/landing_page/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="522">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/projects/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="517" selection-end="517" vertical-scroll-proportion="0.36850393" vertical-offset="0" max-vertical-offset="635">
@@ -1072,26 +1032,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="110" column="0" selection-start="4825" selection-end="4864" vertical-scroll-proportion="-26.0" vertical-offset="1278" max-vertical-offset="2088">
           <folding>
-            <marker date="1387778154418" expanded="true" signature="129:369" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="246:358" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="405:1415" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="422:1404" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="458:657" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="549:642" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="693:926" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="791:911" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="966:1153" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="1070:1138" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="1189:1386" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="1298:1371" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="1439:1764" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="1915:3054" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="1930:2136" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="2197:3017" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="3400:4544" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="3415:3580" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="3659:4507" placeholder="..." />
-            <marker date="1387778154418" expanded="true" signature="4792:4804" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1387778154418" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1154,7 +1114,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sprints_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="5" selection-start="401" selection-end="401" vertical-scroll-proportion="0.33882353" vertical-offset="0" max-vertical-offset="1998">
+        <state line="21" column="17" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1998">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/landing_page/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="12" selection-start="661" selection-end="661" vertical-scroll-proportion="0.39368165" vertical-offset="0" max-vertical-offset="823">
           <folding />
         </state>
       </provider>
