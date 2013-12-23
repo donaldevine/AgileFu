@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.find_all_by_user_id(current_user.id)
+    @projects = Project.search(params[:search], current_user, params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

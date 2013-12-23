@@ -20,12 +20,14 @@ Agilefu::Application.routes.draw do
   end
 
   resources :projects do
-    resources :sprints
+    resources :sprints do
+      resources :tasks
+    end
   end
 
     
   #root requests go to landing page
-  root to: 'home#index'
+  root to: 'landing_page#index'
 
 
 end

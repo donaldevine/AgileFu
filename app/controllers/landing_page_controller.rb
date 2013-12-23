@@ -1,7 +1,8 @@
 class LandingPageController < ApplicationController
-  # We want to skip user authentication for about and faq
-  skip_before_filter :authenticate_user!
 
+  # check auth before we do anything
+  #skip_before_filter :authenticate_user!
+  before_filter :check_auth, only: :index
     
   def index    
     respond_to do |format|
@@ -13,4 +14,14 @@ class LandingPageController < ApplicationController
 
   end
 
+  # methods below this will be private
+  private
+
+  # Check if the user is signed in
+  def check_auth
+    # if user is signed in go to projects
+    if user_signed_in?
+      redirect_to :controller => :projects
+    end
+  end
 end

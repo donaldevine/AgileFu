@@ -2,22 +2,26 @@
 
 <table class="table">
   <tr>
-    <th>Story</th>
+    <th>Start Date</th>
     <th>Description</th>
     <th>Priority</th>
     <th>Position</th>
+    <th>End Date</th>
+    <th>Completed</th>
   </tr>
 
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= link_to_unless(task.story_id.nil?, task.story_id, edit_task_path(task)) %></td>
+    <td><%= link_to_unless(task.start_date.nil?, task.start_date, edit_task_path(task)) %></td>
     <td><%= link_to_unless(task.description.nil?, task.description, edit_task_path(task)) %></td>
     <td><%= link_to_unless(task.priority.nil?, task.priority, edit_task_path(task)) %></td>
     <td><%= link_to_unless(task.position.nil?, task.position, edit_task_path(task)) %></td>
+    <td><%= link_to_unless(task.end_date.nil?, task.end_date, edit_task_path(task)) %></td>
+    <td><%= link_to_unless(task.completed.nil?, task.completed, edit_task_path(task)) %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= button_to "New Task", new_task_path, :method => "get", :class => "btn btn-primary" %>
+<%= button_to 'New Task', new_task_path, :method => 'get', :class => 'btn btn-primary' %>

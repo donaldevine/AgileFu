@@ -17,6 +17,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    @sprint = Sprint.find(params[:sprint_id])
     @task = Task.find(params[:id])
 
     respond_to do |format|
@@ -28,6 +29,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
+    @sprint = Sprint.find(params[:sprint_id])
     @task = Task.new
 
     respond_to do |format|
@@ -38,13 +40,16 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @sprint = Sprint.find(params[:sprint_id])
     @task = Task.find(params[:id])
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(params[:task])
+    @sprint = Project.find(params[:sprint_id])
+    @task = @sprint.tasks.new(params[:task])
+
 
     respond_to do |format|
       if @task.save
@@ -61,6 +66,7 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
+    @sprint = Sprint.find(@task.sprint_id)
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
