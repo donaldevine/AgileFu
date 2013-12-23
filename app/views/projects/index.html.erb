@@ -1,36 +1,14 @@
-<h1>My Projects projects folder</h1>
-
-<p></p>
-
-<%= form_tag projects_path, :method => 'get' do %>
-    <p>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag 'Search', :name => nil %>
-    </p>
+<legend>My Projects</legend>
+<%= form_tag projects_path, :method => 'get', :id => 'projects_search' do %>
+    <div class="form-horizontal">
+        <div class="controls">
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag 'Search', :name => nil, :class => 'btn btn-primary'  %>
+        </div>
+        <br>
+        <div id="projects"><%= render 'projects' %></div>
+    </div>
 <% end %>
-
-<p></p>
-<table class="table">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Target Start</th>
-    <th>Target End</th>
-  </tr>
-
-
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= link_to_unless(project.name.nil?, project.name, edit_project_path(project)) %></td>
-    <td><%= link_to_unless(project.description.nil?, project.description, edit_project_path(project)) %></td>
-    <td><%= link_to_unless(project.target_start_date.nil?, project.target_start_date, edit_project_path(project)) %></td>
-    <td><%= link_to_unless(project.target_completion_date.nil?, project.target_completion_date, edit_project_path(project)) %></td>
-  </tr>
-<% end %>
-</table>
-
-<%= will_paginate @projects, :page_links => false, :class => 'pager', :style => 'text-align:left' %>
-<br/>
-
+<br>
 <%= button_to 'New Project', new_project_path, :method => 'get', :class => 'btn btn-primary' %>
 

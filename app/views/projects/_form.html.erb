@@ -44,7 +44,7 @@
         <p></p>
         <p></p>
         <% unless @project.id.nil? %>
-          <%= button_to "Delete Project", project_path(@project), method: :delete, :class => "btn btn-danger" %>
+          <%= button_to "Delete Project", project_path(@project), method: :delete, :class => "btn btn-danger", :confirm => "Are you sure?" %>
         <% end %>
     </div>
     <% unless @sprints.nil? %>

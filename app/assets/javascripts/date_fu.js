@@ -1,5 +1,5 @@
 /**
- * Script to attach date picker to certain fields
+ * Script to attach date picker to specific fields
  */
 $(function(){
     $('#project_target_start_date').datepicker();

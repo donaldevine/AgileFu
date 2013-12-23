@@ -1,0 +1,20 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table">
+  <tr>
+    <th><%= sortable 'name', 'Project Name' %></th>
+    <th><%= sortable 'description', 'Description' %></th>
+    <th><%= sortable 'target_start_date', 'Target Start Date' %></th>
+    <th><%= sortable 'target_completion_date', 'Target End Date' %></th>
+  </tr>
+  <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to_unless(project.name.nil?, project.name, edit_project_path(project)) %></td>
+        <td><%= link_to_unless(project.description.nil?, project.description, edit_project_path(project)) %></td>
+        <td><%= link_to_unless(project.target_start_date.nil?, project.target_start_date, edit_project_path(project)) %></td>
+        <td><%= link_to_unless(project.target_completion_date.nil?, project.target_completion_date, edit_project_path(project)) %></td>
+      </tr>
+  <% end %>
+</table>
+<%= will_paginate @projects, :page_links => false, :class => 'pager', :style => 'text-align:left' %>
+<%= javascript_include_tag 'ajax_fu' %>

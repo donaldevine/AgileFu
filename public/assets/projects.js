@@ -1,1 +1,0 @@
-(function(){$(function(){return $(".jquery-ui-date").datepicker()})}).call(this);

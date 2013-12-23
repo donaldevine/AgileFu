@@ -17,12 +17,10 @@ class Project < ActiveRecord::Base
   # @param [:page] page
   def self.search(search, current_user, page)
     if search
-      paginate :per_page => 5, :page => page,
-               :conditions => ['name LIKE ? AND user_id = ?', "%#{search}%", current_user.id],
-               :order => 'name'
+      paginate :per_page => 5, :page => page, :conditions => ['(name LIKE ? OR description LIKE ?) AND user_id = ?', "%#{search}%", "%#{search}%", current_user.id]
     else
       # Using where syntax
-      Project.where(:user_id => current_user.id).paginate(:per_page => 5, :page => page).order('name')
+      Project.where(:user_id => current_user.id).paginate(:per_page => 5, :page => page)
 
     end
   end

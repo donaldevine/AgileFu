@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  helper_method :sort_column, :sort_direction
 
   # Handle errors if no records found
   around_filter :catch_not_found, :only => [:edit, :delete]
@@ -12,11 +13,12 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.search(params[:search], current_user, params[:page])
+    @projects = Project.search(params[:search], current_user, params[:page]).order(sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @projects }
+      format.js
+      #format.json { render json: @projects }
     end
   end
 
@@ -109,5 +111,13 @@ class ProjectsController < ApplicationController
 
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path
+  end
+
+  def sort_column
+    Project.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end
