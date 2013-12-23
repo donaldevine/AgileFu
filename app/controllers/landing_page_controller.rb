@@ -4,10 +4,8 @@ class LandingPageController < ApplicationController
   #skip_before_filter :authenticate_user!
   before_filter :check_auth, only: :index
     
-  def index    
-    respond_to do |format|
-      format.html # index.html.erb      
-    end
+  def index
+    render :layout => 'landing'
   end
 
   def about

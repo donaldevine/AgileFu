@@ -10,46 +10,77 @@
       </ul>
     </div>
   <% end %>
+    <legend>Sprint Details</legend>
     <fieldset>
-      <div class="control-group">
-        <%= f.label :description, :class => "control-label" %><br />
-        <div class="controls">
-          <%= f.text_area :description, :rows => "3", :placeholder => "Description of sprint..." %>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= f.label :start_date, :class => "control-label" %>
-        <div class="controls">
-          <%= f.text_field :start_date %>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= f.label :priority, :class => "control-label" %>
-        <div class="controls">
-          <%= f.number_field :priority %>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= f.label :position, :class => "control-label" %>
-        <div class="controls">
-          <%= f.number_field :position %>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= f.label :end_date, :class => "control-label" %>
-        <div class="controls">
-          <%= f.text_field :end_date %>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= f.label :sprint_review, :class => "control-label" %><br />
-        <div class="controls">
-          <%= f.text_area :sprint_review, :rows => "3", :placeholder => "Review of sprint..." %>
-        </div>
-      </div>
-      <div class="form-actions">
-        <%= f.submit :class => "btn btn-primary" %>
-      </div>
+          <div class="control-group">
+            <%= f.label :start_date, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_field :start_date %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :description, :class => "control-label" %><br />
+            <div class="controls">
+              <%= f.text_area :description, :rows => "3", :placeholder => "Description of sprint..." %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :priority, :class => "control-label" %>
+            <div class="controls">
+              <%= f.number_field :priority %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :position, :class => "control-label" %>
+            <div class="controls">
+              <%= f.number_field :position %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :end_date, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_field :end_date %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :sprint_review, :class => "control-label" %><br />
+            <div class="controls">
+              <%= f.text_area :sprint_review, :rows => "3", :placeholder => "Review of sprint..." %>
+            </div>
+          </div>
+          <div class="form-actions">
+            <%= f.submit :class => "btn btn-primary" %>
+          </div>
     </fieldset>
 <% end %>
-<%= javascript_include_tag "datestuff" %>
+<% unless @sprint.tasks.nil? %>
+    <br>
+    <legend>Tasks for <%= @sprint.description %></legend>
+    <table class="table">
+      <tr>
+        <th>Start Date</th>
+        <th>Description</th>
+        <th>Priority</th>
+        <th>Position</th>
+        <th>End Date</th>
+        <th>Completed</th>
+      </tr>
+      <% @sprint.tasks.each do |task| %>
+          <tr>
+            <td><%= link_to_unless(task.start_date.nil?, task.start_date, edit_project_sprint_task_path(@project, @sprint, task)) %></td>
+            <td><%= link_to_unless(task.description.nil?, task.description, edit_project_sprint_task_path(@project, @sprint, task)) %></td>
+            <td><%= link_to_unless(task.priority.nil?, task.priority, edit_project_sprint_task_path(@project, @sprint, task)) %></td>
+            <td><%= link_to_unless(task.position.nil?, task.position, edit_project_sprint_task_path(@project, @sprint, task)) %></td>
+            <td><%= link_to_unless(task.end_date.nil?, task.end_date, edit_project_sprint_task_path(@project, @sprint, task)) %></td>
+            <td><%= link_to(task.completed ? 'True' : 'False', edit_project_sprint_task_path(@project, @sprint, task)) %></td>
+          </tr>
+      <% end %>
+    </table>
+    <br>
+<% end %>
+<% unless @sprint.id.nil? %>
+    <%= button_to "Create a new Task for this Sprint!", new_project_sprint_task_path(@project, @sprint), :class => "btn btn-primary", :method => :get %>
+    <br>
+<% end %>
+
+<%= javascript_include_tag 'date_fu' %>

@@ -29,6 +29,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
+    @project = Project.find(params[:project_id])
     @sprint = Sprint.find(params[:sprint_id])
     @task = Task.new
 
@@ -40,6 +41,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @project = Project.find(params[:project_id])
     @sprint = Sprint.find(params[:sprint_id])
     @task = Task.find(params[:id])
   end
@@ -47,13 +49,13 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @sprint = Project.find(params[:sprint_id])
+    @project = Project.find(params[:project_id])
+    @sprint = Sprint.find(params[:sprint_id])
     @task = @sprint.tasks.new(params[:task])
-
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to edit_project_sprint_path(@project, @sprint), notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }
@@ -65,12 +67,13 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
+    @project = Project.find(params[:project_id])
+    @sprint = Sprint.find(params[:sprint_id])
     @task = Task.find(params[:id])
-    @sprint = Sprint.find(@task.sprint_id)
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to edit_project_sprint_path(@project, @sprint), notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -5,5 +5,5 @@ class Task < ActiveRecord::Base
   belongs_to :sprint    # Sprint can have many tasks
 
   # Input validation
-  validates_presence_of :description
+  validates_presence_of  :start_date, :description
 end

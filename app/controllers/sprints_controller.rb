@@ -7,7 +7,8 @@ class SprintsController < ApplicationController
   # GET /sprints
   # GET /sprints.json
   def index
-    @sprints = Sprint.find_all_by_user_id(current_user.id)
+    @project = Project.find(params[:project_id])
+    @sprints = @project.sprints
 
     respond_to do |format|
       format.html # index.html.erb
@@ -70,7 +71,7 @@ class SprintsController < ApplicationController
 
     respond_to do |format|
       if @sprint.update_attributes(params[:sprint])
-        format.html { redirect_to project_sprint_path(@project, @sprint), notice: 'Sprint was successfully updated.' }
+        format.html { redirect_to edit_project_path(@project), notice: 'Sprint was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

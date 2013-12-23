@@ -6,4 +6,6 @@ $(function(){
     $('#project_target_completion_date').datepicker();
     $('#sprint_start_date').datepicker();
     $('#sprint_end_date').datepicker();
+    $('#task_start_date').datepicker();
+    $('#task_end_date').datepicker();
 });
